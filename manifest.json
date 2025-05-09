@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Invert Page Colors",
+  "version": "1.1",
+  "description": "Toggles or automatically inverts colors on specific pages",
+  "permissions": ["scripting", "activeTab"],
+  "action": {
+    "default_title": "Invert Colors",
+    "default_icon": {
+      "16": "icons/icon.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://example.com/*",
+        "https://example2.com/*"
+
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
